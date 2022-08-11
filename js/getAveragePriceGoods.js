@@ -12,13 +12,17 @@ const allCashbox = [
 ];
 
 const getAveragePriceGoods = (arr) => {
-  let averagePriceGoods = [];
-  for (let i = 0; i < arr.length; i++) {
-    let average;
-    average = Math.round(arr[i][1] / arr[i][0]);
-    averagePriceGoods.push(average);
+  let summa = 0;
+  let count = 0;
+  
+  for (const key in arr) {
+    count += arr[key][0];
+    summa += arr[key][1];
   }
-  return averagePriceGoods;
+
+  let average;
+  average = Math.round(summa / count);
+  return average;
 }
 
 console.log(getAveragePriceGoods(allCashbox));
